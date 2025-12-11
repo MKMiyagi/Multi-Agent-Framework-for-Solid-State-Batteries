@@ -1,0 +1,11 @@
+torch
+langgraph
+huggingface-hub
+llama-index
+llama-index-core
+llama-index-embeddings-huggingface-api
+llama-index-retrievers-bm25
+llama-index-postprocessor-flag-embedding-reranker
+mp-api
+numpy
+pandas
