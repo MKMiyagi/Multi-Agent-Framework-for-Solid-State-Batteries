@@ -20,7 +20,7 @@ This repository contains the final project for CMSC 35370: AI Agents for Science
 ## Installation
 1. Clone the repo
 2. Install dependencies
-'''bash
+```bash
 pip install -r requirements.txt
 ```
 
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 Before running the system, ou must set up your API keys as environment variables within the terminal
 
-** For macOS/Linux/WSL**
+**For macOS/Linux/WSL**
 ```bash
 export HF_API_KEY="your API key"
 export MP_API_KEY="your API key"
