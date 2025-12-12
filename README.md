@@ -26,12 +26,23 @@ pip install -r requirements.txt
 
 ## Setup API Keys
 
-Before running the system, ou must set up your API keys as environment variables within the terminal
+Before running the system, you must set up your API keys as environment variables within the terminal
 
 **For macOS/Linux/WSL**
 ```bash
 export HF_API_KEY="your API key"
 export MP_API_KEY="your API key"
+```
+
+## To Run
+
+There are 3 different frameworks you can test, the full_pipeline, hypothesis_critic_loop, or only_hypothesis. The default query is pasted below, you can change to whatever you want within the python file.
+
+**For macOS/Linux/WSL**
+```bash
+python full_pipeline.py
+python hypothesis_critic_loop.py
+python only_hypothesis.py
 ```
 
 ## Example Prompt
@@ -46,11 +57,19 @@ effective and why.
 
 ## Project Structure
 ```
-├── research_framework.py
 ├── example outputs/
 │   ├── system_output.txt
 │   ├── hypothesis_critic_loop.txt
 │   └── hypothesis_only.txt
-├── requirements.txt
+├── processed_text_only/
+│   ├── paper1.md
+│   └── papern.md
+├── add_to_database.py
+├── contextual_nodes.py
+├── full_pipeline.py
+├── hypothesis_critic_loop.py
+├── ingest.py
+├── only_hypothesis.py
+├── parser.py
 └── README.md
 ```
