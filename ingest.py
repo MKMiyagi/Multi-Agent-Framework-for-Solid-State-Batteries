@@ -30,7 +30,7 @@ except Exception as e:
     print(f"LLM failed: {e}\n")
     exit(1)
 
-print("2. Testing embeddings (Qwen 3 8B)...")
+print("2. Testing embeddings...")
 try:
     test_embed = embed_client.feature_extraction("test", model=EMBED_MODEL)
     if isinstance(test_embed, list) and len(test_embed) > 0 and isinstance(test_embed[0], list):
@@ -51,7 +51,7 @@ def get_document_context(content: str, filename: str) -> str:
     MAX_CHARS = 100000
     
     if len(content) > MAX_CHARS:
-        print(f"Document too long ({len(content):,} chars), using smart truncation...")
+        print(f"Document too long ({len(content):,} chars), truncating...")
         first_part_len = int(MAX_CHARS * 0.8)
         last_part_len = int(MAX_CHARS * 0.2)
         
@@ -61,7 +61,7 @@ def get_document_context(content: str, filename: str) -> str:
             content[-last_part_len:]
         )
         content = truncated_content
-        print(f"   → Truncated to {len(content):,} chars")
+        print(f"Truncated to {len(content):,} chars")
     
     prompt = f"""Analyze this solid-state battery research paper and provide a concise summary (3-4 sentences):
 1. Main research question or objective
@@ -200,7 +200,7 @@ for doc_idx, doc in enumerate(documents):
             all_nodes.append(node)
             
         except Exception as e:
-            print(f"    ⚠ Failed to process chunk {node_idx} after retries: {e}")
+            print(f"Failed to process chunk {node_idx} after retries: {e}")
             continue
     
     chunk_count = len([n for n in all_nodes if n.metadata.get('doc_idx') == doc_idx])
